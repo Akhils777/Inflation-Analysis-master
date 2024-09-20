@@ -1,0 +1,387 @@
+Year,Country,Inflation_rate
+2020,Afghanistan,6
+2020,Albania,3
+2020,Algeria,4
+2020,Angola,10.9
+2020,Antigua and Barbuda,2.5
+2020,Argentina,11.7
+2020,Armenia,4
+2020,Australia,2.5
+2020,Austria,2.2
+2020,Azerbaijan,6
+2020,"Bahamas, The",1.5
+2020,Bahrain,1.9
+2020,Bangladesh,5.6
+2020,Barbados,2.5
+2020,Belarus,8
+2020,Belgium,1.8
+2020,Belize,2.1
+2020,Benin,2
+2020,Bhutan,4.7
+2020,Bolivia,5
+2020,Bosnia and Herzegovina,2.1
+2020,Botswana,4.9
+2020,Brazil,4.5
+2020,Brunei Darussalam,0.2
+2020,Bulgaria,2.1
+2020,Burkina Faso,2
+2020,Burundi,19.6
+2020,Cabo Verde,2
+2020,Cambodia,3
+2020,Cameroon,2
+2020,Canada,2
+2020,Central African Republic,3
+2020,Chad,3.1
+2020,Chile,3
+2020,"China, People's Republic of",3
+2020,Colombia,3
+2020,Comoros,2
+2020,"Congo, Dem. Rep. of the",6
+2020,"Congo, Republic of ",2.5
+2020,Costa Rica,3
+2020,Croatia,1.8
+2020,Cyprus,1.8
+2020,Czech Republic,2
+2020,Côte d'Ivoire,2
+2020,Denmark,2
+2020,Djibouti,3
+2020,Dominica,1.8
+2020,Dominican Republic,4
+2020,Ecuador,0.9
+2020,Egypt,8.1
+2020,El Salvador,2
+2020,Equatorial Guinea,1.7
+2020,Eritrea,9
+2020,Estonia,2.3
+2020,Ethiopia,7.5
+2020,FYR Macedonia,2
+2020,Fiji,3
+2020,Finland,1.9
+2020,France,1.7
+2020,Gabon,2.5
+2020,"Gambia, The",4
+2020,Georgia,3
+2020,Germany,2.1
+2020,Ghana,6
+2020,Greece,1.7
+2020,Grenada,1.9
+2020,Guatemala,4
+2020,Guinea,5
+2020,Guinea-Bissau,2.5
+2020,Guyana,3.1
+2020,Haiti,5
+2020,Honduras,4.5
+2020,Hong Kong SAR,2.9
+2020,Hungary,3
+2020,Iceland,2.7
+2020,India,4.9
+2020,Indonesia,4.1
+2020,Iran,9.5
+2020,Iraq,2
+2020,Ireland,1.8
+2020,Israel,2
+2020,Italy,1.4
+2020,Jamaica,5.5
+2020,Japan,1.6
+2020,Jordan,2.5
+2020,Kazakhstan,5.5
+2020,Kenya,5
+2020,Kiribati,2.5
+2020,"Korea, Republic of",1.9
+2020,Kosovo,2.1
+2020,Kuwait,3.4
+2020,Kyrgyz Republic,5
+2020,Lao P.D.R.,3.3
+2020,Latvia,2.4
+2020,Lebanon,2
+2020,Lesotho,5
+2020,Liberia,7.9
+2020,Libya,24.7
+2020,Lithuania,2.5
+2020,Luxembourg,1.9
+2020,Macao SAR,2.6
+2020,Madagascar,5.5
+2020,Malawi,9.1
+2020,Malaysia,3
+2020,Maldives,2.4
+2020,Mali,1.9
+2020,Malta,1.8
+2020,Marshall Islands,2.1
+2020,Mauritania,4.4
+2020,Mauritius,3
+2020,Mexico,3
+2020,"Micronesia, Fed. States of",2.3
+2020,Moldova,5
+2020,Mongolia,6.7
+2020,Montenegro,1.7
+2020,Morocco,2
+2020,Mozambique,5.5
+2020,Myanmar,6.4
+2020,Namibia,5.8
+2020,Nauru,2
+2020,Nepal,6.7
+2020,Netherlands,1.6
+2020,New Zealand,2
+2020,Nicaragua,7.3
+2020,Niger,2
+2020,Nigeria,15.2
+2020,Norway,2.5
+2020,Oman,3
+2020,Pakistan,5
+2020,Palau,2
+2020,Panama,2.4
+2020,Papua New Guinea,6
+2020,Paraguay,4
+2020,Peru,2.5
+2020,Philippines,3
+2020,Poland,2.5
+2020,Portugal,1.6
+2020,Puerto Rico,-0.1
+2020,Qatar,2.2
+2020,Romania,2.6
+2020,Russian Federation,4
+2020,Rwanda,5
+2020,Saint Kitts and Nevis,1.9
+2020,Saint Lucia,1.5
+2020,Saint Vincent and the Grenadines,1.4
+2020,Samoa,2.8
+2020,San Marino,1.1
+2020,Saudi Arabia,2.2
+2020,Senegal,2
+2020,Serbia,3
+2020,Seychelles,3.1
+2020,Sierra Leone,6.7
+2020,Singapore,1.9
+2020,Slovak Republic,1.8
+2020,Slovenia,2
+2020,Solomon Islands,2.9
+2020,South Africa,5.5
+2020,"South Sudan, Republic of",7.5
+2020,Spain,1.7
+2020,Sri Lanka,5
+2020,Sudan,14
+2020,Suriname,4.9
+2020,Swaziland,5.7
+2020,Sweden,1.9
+2020,Switzerland,0.9
+2020,Syria,no data
+2020,São Tomé and Príncipe,3
+2020,Taiwan Province of China,1.8
+2020,Tajikistan,6
+2020,Tanzania,5
+2020,Thailand,2.3
+2020,Timor-Leste,3.8
+2020,Togo,2
+2020,Tonga,2.9
+2020,Trinidad and Tobago,4.7
+2020,Tunisia,3.5
+2020,Turkey,7.9
+2020,Turkmenistan,6.2
+2020,Tuvalu,2.6
+2020,Uganda,5
+2020,Ukraine,5.5
+2020,United Arab Emirates,2.6
+2020,United Kingdom,2.1
+2020,United States,2.3
+2020,Uruguay,6.6
+2020,Uzbekistan,9
+2020,Vanuatu,3
+2020,Venezuela,3960.4
+2020,Vietnam,5
+2020,Yemen,11.5
+2020,Zambia,6.3
+2020,Zimbabwe,4
+2020,World,3.3
+2021,Afghanistan,6
+2021,Albania,3
+2021,Algeria,4
+2021,Angola,9.4
+2021,Antigua and Barbuda,2.5
+2021,Argentina,10
+2021,Armenia,4
+2021,Australia,2.5
+2021,Austria,2.2
+2021,Azerbaijan,6
+2021,"Bahamas, The",1.5
+2021,Bahrain,1.8
+2021,Bangladesh,5.7
+2021,Barbados,2.5
+2021,Belarus,7.1
+2021,Belgium,2
+2021,Belize,2
+2021,Benin,2
+2021,Bhutan,4.7
+2021,Bolivia,5
+2021,Bosnia and Herzegovina,2.1
+2021,Botswana,4.8
+2021,Brazil,4.5
+2021,Brunei Darussalam,0.1
+2021,Bulgaria,2.1
+2021,Burkina Faso,2
+2021,Burundi,16.8
+2021,Cabo Verde,2
+2021,Cambodia,3
+2021,Cameroon,2
+2021,Canada,2
+2021,Central African Republic,3
+2021,Chad,3
+2021,Chile,3
+2021,"China, People's Republic of",3
+2021,Colombia,3
+2021,Comoros,2
+2021,"Congo, Dem. Rep. of the",5
+2021,"Congo, Republic of ",2.4
+2021,Costa Rica,3
+2021,Croatia,2
+2021,Cyprus,1.9
+2021,Czech Republic,2
+2021,Côte d'Ivoire,2
+2021,Denmark,2
+2021,Djibouti,3
+2021,Dominica,1.9
+2021,Dominican Republic,4
+2021,Ecuador,1.2
+2021,Egypt,7.2
+2021,El Salvador,2
+2021,Equatorial Guinea,1.8
+2021,Eritrea,9
+2021,Estonia,2.4
+2021,Ethiopia,7.5
+2021,FYR Macedonia,2
+2021,Fiji,3
+2021,Finland,2
+2021,France,1.7
+2021,Gabon,2.5
+2021,"Gambia, The",3.5
+2021,Georgia,3
+2021,Germany,2.2
+2021,Ghana,6
+2021,Greece,1.7
+2021,Grenada,1.9
+2021,Guatemala,4
+2021,Guinea,5
+2021,Guinea-Bissau,2.8
+2021,Guyana,3.1
+2021,Haiti,5
+2021,Honduras,4.5
+2021,Hong Kong SAR,3
+2021,Hungary,3
+2021,Iceland,2.5
+2021,India,4.9
+2021,Indonesia,4
+2021,Iran,9
+2021,Iraq,2
+2021,Ireland,1.9
+2021,Israel,2
+2021,Italy,1.4
+2021,Jamaica,5.5
+2021,Japan,1.3
+2021,Jordan,2.5
+2021,Kazakhstan,4.7
+2021,Kenya,5
+2021,Kiribati,2.5
+2021,"Korea, Republic of",2
+2021,Kosovo,2.2
+2021,Kuwait,3.4
+2021,Kyrgyz Republic,5
+2021,Lao P.D.R.,3.1
+2021,Latvia,2.3
+2021,Lebanon,2
+2021,Lesotho,5
+2021,Liberia,7.4
+2021,Libya,24.7
+2021,Lithuania,2.5
+2021,Luxembourg,2
+2021,Macao SAR,2.8
+2021,Madagascar,5.4
+2021,Malawi,8.9
+2021,Malaysia,3
+2021,Maldives,2.4
+2021,Mali,2.1
+2021,Malta,1.8
+2021,Marshall Islands,2.1
+2021,Mauritania,4.4
+2021,Mauritius,3
+2021,Mexico,3
+2021,"Micronesia, Fed. States of",1.2
+2021,Moldova,5
+2021,Mongolia,6.5
+2021,Montenegro,1.8
+2021,Morocco,2
+2021,Mozambique,5.6
+2021,Myanmar,6.3
+2021,Namibia,5.7
+2021,Nauru,2
+2021,Nepal,6.5
+2021,Netherlands,1.6
+2021,New Zealand,2
+2021,Nicaragua,7.1
+2021,Niger,2
+2021,Nigeria,14.7
+2021,Norway,2.5
+2021,Oman,3.2
+2021,Pakistan,5
+2021,Palau,2
+2021,Panama,2.3
+2021,Papua New Guinea,6
+2021,Paraguay,4
+2021,Peru,2.5
+2021,Philippines,3
+2021,Poland,2.5
+2021,Portugal,1.8
+2021,Puerto Rico,-0.3
+2021,Qatar,2.1
+2021,Romania,2.5
+2021,Russian Federation,4
+2021,Rwanda,5
+2021,Saint Kitts and Nevis,1.9
+2021,Saint Lucia,1.4
+2021,Saint Vincent and the Grenadines,1.4
+2021,Samoa,3
+2021,San Marino,1.2
+2021,Saudi Arabia,2
+2021,Senegal,2
+2021,Serbia,3
+2021,Seychelles,3
+2021,Sierra Leone,6.2
+2021,Singapore,1.9
+2021,Slovak Republic,1.9
+2021,Slovenia,2
+2021,Solomon Islands,3
+2021,South Africa,5.5
+2021,"South Sudan, Republic of",7.5
+2021,Spain,1.8
+2021,Sri Lanka,5
+2021,Sudan,14
+2021,Suriname,4
+2021,Swaziland,5.7
+2021,Sweden,2
+2021,Switzerland,1
+2021,Syria,no data
+2021,São Tomé and Príncipe,3
+2021,Taiwan Province of China,2
+2021,Tajikistan,6
+2021,Tanzania,5
+2021,Thailand,2.5
+2021,Timor-Leste,3.9
+2021,Togo,2
+2021,Tonga,2.7
+2021,Trinidad and Tobago,4.8
+2021,Tunisia,3.5
+2021,Turkey,7.5
+2021,Turkmenistan,6.2
+2021,Tuvalu,2.5
+2021,Uganda,5
+2021,Ukraine,5
+2021,United Arab Emirates,2.6
+2021,United Kingdom,2
+2021,United States,2.2
+2021,Uruguay,6.4
+2021,Uzbekistan,9
+2021,Vanuatu,3
+2021,Venezuela,4505
+2021,Vietnam,5
+2021,Yemen,10
+2021,Zambia,6
+2021,Zimbabwe,4
+2021,World,3.3

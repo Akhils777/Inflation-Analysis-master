@@ -1,0 +1,1 @@
+You can run this by making a folder name app and put all the files except main.py and world.png. In VS code click on terminal then new terminal then you will see an v sign next to + sign then choose command prompt then write streamlit run main.py. 
