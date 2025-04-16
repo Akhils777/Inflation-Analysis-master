@@ -36,7 +36,7 @@ def calculate_summary_stats(df, selected_countries):
 
 def run1():
     st.title('Inflation Rate Comparison During Covid')
-    df = pd.read_csv(r'app\covid_dataset.csv', encoding='latin1')
+    df = pd.read_csv(r'app/covid_dataset.csv', encoding='latin1')
 
     df['Year'] = pd.to_numeric(df['Year'], errors='coerce')
     df.dropna(subset=['Year'], inplace=True)

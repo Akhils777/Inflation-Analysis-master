@@ -36,7 +36,7 @@ def calculate_summary_stats(df, selected_countries):
 def run2():
     st.title('Inflation Rate Comparison Region Wise')
 
-    df = pd.read_csv(r'app\Continental_dataset.csv', encoding='latin1')
+    df = pd.read_csv(r'app/Continental_dataset.csv', encoding='latin1')
 
     st.sidebar.title('Settings')
     selected_countries = st.sidebar.multiselect('Select Countries', df['Country'].unique())

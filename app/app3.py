@@ -37,7 +37,7 @@ def calculate_summary_stats(df, selected_countries):
 def run3():
     st.title('Inflation Rate Comparison During War')
 
-    df = pd.read_csv(r'app\War_dataset.csv', encoding='latin1') 
+    df = pd.read_csv(r'app/War_dataset.csv', encoding='latin1') 
 
     st.sidebar.title('Settings')
     selected_countries = st.sidebar.multiselect('Select Countries', df['Country'].unique())
