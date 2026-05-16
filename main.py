@@ -12,7 +12,7 @@ def main():
 
     if app_selection == "Home":
         st.write("Welcome. Choose an app from the sidebar.")
-        st.image("world.png", caption="World Image", use_container_width=True)
+        st.image("world.png", caption="World Image", use_column_width=True)
     elif app_selection == "Country Wise":
         run()
     elif app_selection == "During COVID":
