@@ -1,5 +1,4 @@
 Year,Country,Inflation_rate
-Year,Country,Inflation_rate
 2020,Afghanistan,5.6
 2020,Albania,1.6
 2020,Algeria,2.4
@@ -43,7 +42,7 @@ Year,Country,Inflation_rate
 2020,Croatia,0.1
 2020,Cyprus,-1.1
 2020,Czech Republic,3.2
-2020,C�te d'Ivoire,2.4
+2020,Cï¿½te d'Ivoire,2.4
 2020,Denmark,0.4
 2020,Djibouti,2.0
 2020,Dominica,0.9
@@ -165,8 +164,7 @@ Year,Country,Inflation_rate
 2020,Swaziland,3.9
 2020,Sweden,0.5
 2020,Switzerland,-0.7
-2020,Syria,no data
-2020,S�o Tom� and Pr�ncipe,9.0
+2020,Sï¿½o Tomï¿½ and Prï¿½ncipe,9.0
 2020,Taiwan Province of China,-0.2
 2020,Tajikistan,8.6
 2020,Tanzania,3.3
@@ -236,7 +234,7 @@ Year,Country,Inflation_rate
 2021,Croatia,2.5
 2021,Cyprus,1.5
 2021,Czech Republic,3.0
-2021,C�te d'Ivoire,3.2
+2021,Cï¿½te d'Ivoire,3.2
 2021,Denmark,1.7
 2021,Djibouti,2.5
 2021,Dominica,2.4
@@ -339,7 +337,6 @@ Year,Country,Inflation_rate
 2021,Saint Lucia,1.4
 2021,Saint Vincent and the Grenadines,1.4
 2021,Samoa,3.0
-2021,San Marino,no data
 2021,Saudi Arabia,3.1
 2021,Senegal,2.2
 2021,Serbia,4.0
@@ -358,8 +355,7 @@ Year,Country,Inflation_rate
 2021,Eswatini,3.9
 2021,Sweden,2.2
 2021,Switzerland,0.6
-2021,Syria,no data
-2021,"São Tomé and Príncipe",9.0
+2021,SÃ£o TomÃ© and PrÃ­ncipe,9.0
 2021,Taiwan Province of China,1.9
 2021,Tajikistan,8.0
 2021,Tanzania,3.9
@@ -370,7 +366,6 @@ Year,Country,Inflation_rate
 2021,Trinidad and Tobago,2.1
 2021,Tunisia,5.7
 2021,Turkey,19.6
-2021,Turkmenistan,no data
 2021,Tuvalu,2.5
 2021,Uganda,2.2
 2021,Ukraine,9.4
@@ -386,3 +381,391 @@ Year,Country,Inflation_rate
 2021,Zambia,22.1
 2021,Zimbabwe,98.5
 2021,World,4.7
+2025,Afghanistan,7.78
+2026,Afghanistan,8.88
+2025,Albania,5.36
+2026,Albania,6.68
+2025,Algeria,6.01
+2026,Algeria,7.27
+2025,Angola,27.59
+2026,Angola,26.91
+2025,Antigua and Barbuda,4.15
+2026,Antigua and Barbuda,5.58
+2025,Argentina,49.63
+2026,Argentina,46.96
+2025,Armenia,10.85
+2026,Armenia,11.67
+2025,Australia,4.99
+2026,Australia,6.34
+2025,Austria,4.8
+2026,Austria,6.17
+2025,Azerbaijan,6.39
+2026,Azerbaijan,7.61
+2025,"Bahamas, The",4.53
+2026,"Bahamas, The",5.92
+2025,Bahrain,3.69
+2026,Bahrain,5.16
+2025,Bangladesh,7.32
+2026,Bangladesh,8.46
+2025,Barbados,7.22
+2026,Barbados,8.37
+2025,Belarus,11.13
+2026,Belarus,11.93
+2025,Belgium,4.34
+2026,Belgium,5.75
+2025,Belize,3.87
+2026,Belize,5.33
+2025,Benin,5.18
+2026,Benin,6.51
+2025,Bhutan,6.2
+2026,Bhutan,7.44
+2025,Bolivia,4.34
+2026,Bolivia,5.75
+2025,Bosnia and Herzegovina,4.53
+2026,Bosnia and Herzegovina,5.92
+2025,Botswana,10.01
+2026,Botswana,10.91
+2025,Brazil,11.59
+2026,Brazil,12.35
+2025,Brunei Darussalam,2.01
+2026,Brunei Darussalam,3.63
+2025,Bulgaria,5.08
+2026,Bulgaria,6.43
+2025,Burkina Faso,5.18
+2026,Burkina Faso,6.51
+2025,Burundi,17.45
+2026,Burundi,17.68
+2025,Cabo Verde,2.85
+2026,Cabo Verde,4.39
+2025,Cambodia,5.27
+2026,Cambodia,6.59
+2025,Cameroon,3.97
+2026,Cameroon,5.41
+2025,Canada,5.36
+2026,Canada,6.68
+2025,Central African Republic,5.64
+2026,Central African Republic,6.93
+2025,Chad,5.46
+2026,Chad,6.76
+2025,Chile,8.9
+2026,Chile,9.9
+2025,"China, People's Republic of",3.04
+2026,"China, People's Republic of",4.56
+2025,Colombia,5.55
+2026,Colombia,6.85
+2025,Comoros,4.43
+2026,Comoros,5.83
+2025,"Congo, Dem. Rep. of the",7.04
+2026,"Congo, Dem. Rep. of the",8.2
+2025,"Congo, Republic of ",4.25
+2026,"Congo, Republic of ",5.66
+2025,Costa Rica,4.99
+2026,Costa Rica,6.34
+2025,Croatia,4.53
+2026,Croatia,5.92
+2025,Cyprus,3.6
+2026,Cyprus,5.07
+2025,Czech Republic,4.99
+2026,Czech Republic,6.34
+2025,Cï¿½te d'Ivoire,5.18
+2026,Cï¿½te d'Ivoire,6.51
+2025,Denmark,3.78
+2026,Denmark,5.24
+2025,Djibouti,4.53
+2026,Djibouti,5.92
+2025,Dominica,4.43
+2026,Dominica,5.83
+2025,Dominican Republic,10.1
+2026,Dominican Republic,11.0
+2025,Ecuador,4.25
+2026,Ecuador,5.66
+2025,Egypt,7.41
+2026,Egypt,8.54
+2025,El Salvador,6.39
+2026,El Salvador,7.61
+2025,Equatorial Guinea,3.5
+2026,Equatorial Guinea,4.99
+2025,Eritrea,10.66
+2026,Eritrea,11.5
+2025,Estonia,6.85
+2026,Estonia,8.03
+2025,Ethiopia,31.5
+2026,Ethiopia,30.46
+2025,FYR Macedonia,5.18
+2026,FYR Macedonia,6.51
+2025,Fiji,4.25
+2026,Fiji,5.66
+2025,Finland,3.97
+2026,Finland,5.41
+2025,France,3.69
+2026,France,5.16
+2025,Gabon,5.46
+2026,Gabon,6.76
+2025,"Gambia, The",7.78
+2026,"Gambia, The",8.88
+2025,Georgia,11.13
+2026,Georgia,11.93
+2025,Germany,5.08
+2026,Germany,6.43
+2025,Ghana,12.06
+2026,Ghana,12.77
+2025,Greece,2.66
+2026,Greece,4.23
+2025,Grenada,4.34
+2026,Grenada,5.75
+2025,Guatemala,6.39
+2026,Guatemala,7.61
+2025,Guinea,12.24
+2026,Guinea,12.94
+2025,Guinea-Bissau,5.46
+2026,Guinea-Bissau,6.76
+2025,Guyana,9.08
+2026,Guyana,10.06
+2025,Haiti,18.01
+2026,Haiti,18.19
+2025,Honduras,5.92
+2026,Honduras,7.19
+2025,Hong Kong SAR,3.69
+2026,Hong Kong SAR,5.16
+2025,Hungary,6.94
+2026,Hungary,8.12
+2025,Iceland,4.53
+2026,Iceland,5.92
+2025,India,6.94
+2026,India,8.12
+2025,Indonesia,3.69
+2026,Indonesia,5.16
+2025,Iran,39.4
+2026,Iran,37.65
+2025,Iraq,8.43
+2026,Iraq,9.47
+2025,Ireland,4.43
+2026,Ireland,5.83
+2025,Israel,4.53
+2026,Israel,5.92
+2025,Italy,3.97
+2026,Italy,5.41
+2025,Jamaica,6.94
+2026,Jamaica,8.12
+2025,Japan,1.46
+2026,Japan,3.12
+2025,Jordan,3.97
+2026,Jordan,5.41
+2025,Kazakhstan,10.01
+2026,Kazakhstan,10.91
+2025,Kenya,7.87
+2026,Kenya,8.96
+2025,Kiribati,4.25
+2026,Kiribati,5.66
+2025,"Korea, Republic of",4.53
+2026,"Korea, Republic of",5.92
+2025,Kosovo,5.92
+2026,Kosovo,7.19
+2025,Kuwait,5.46
+2026,Kuwait,6.76
+2025,Kyrgyz Republic,13.82
+2026,Kyrgyz Republic,14.38
+2025,Lao P.D.R.,4.62
+2026,Lao P.D.R.,6.0
+2025,Latvia,4.8
+2026,Latvia,6.17
+2025,Lebanon,146.16
+2026,Lebanon,134.81
+2025,Lesotho,6.76
+2026,Lesotho,7.95
+2025,Liberia,8.99
+2026,Liberia,9.98
+2025,Libya,20.15
+2026,Libya,20.14
+2025,Lithuania,6.85
+2026,Lithuania,8.03
+2025,Luxembourg,4.06
+2026,Luxembourg,5.49
+2025,Macao SAR,3.04
+2026,Macao SAR,4.56
+2025,Madagascar,7.22
+2026,Madagascar,8.37
+2025,Malawi,10.48
+2026,Malawi,11.33
+2025,Malaysia,4.99
+2026,Malaysia,6.34
+2025,Maldives,4.43
+2026,Maldives,5.83
+2025,Mali,4.15
+2026,Mali,5.58
+2025,Malta,3.87
+2026,Malta,5.33
+2025,Marshall Islands,4.15
+2026,Marshall Islands,5.58
+2025,Mauritania,6.29
+2026,Mauritania,7.53
+2025,Mauritius,4.99
+2026,Mauritius,6.34
+2025,Mexico,7.5
+2026,Mexico,8.63
+2025,"Micronesia, Fed. States of",3.32
+2026,"Micronesia, Fed. States of",4.82
+2025,Moldova,6.85
+2026,Moldova,8.03
+2025,Mongolia,8.25
+2026,Mongolia,9.3
+2025,Montenegro,3.87
+2026,Montenegro,5.33
+2025,Morocco,4.06
+2026,Morocco,5.49
+2025,Mozambique,7.41
+2026,Mozambique,8.54
+2025,Myanmar,8.06
+2026,Myanmar,9.13
+2025,Namibia,7.5
+2026,Namibia,8.63
+2025,Nauru,4.06
+2026,Nauru,5.49
+2025,Nepal,8.25
+2026,Nepal,9.3
+2025,Netherlands,4.71
+2026,Netherlands,6.09
+2025,New Zealand,5.83
+2026,New Zealand,7.1
+2025,Nicaragua,8.8
+2026,Nicaragua,9.81
+2025,Niger,4.06
+2026,Niger,5.49
+2025,Nigeria,17.92
+2026,Nigeria,18.1
+2025,Norway,5.46
+2026,Norway,6.76
+2025,Oman,4.99
+2026,Oman,6.34
+2025,Pakistan,10.48
+2026,Pakistan,11.33
+2025,Palau,4.06
+2026,Palau,5.49
+2025,Panama,4.34
+2026,Panama,5.75
+2025,Papua New Guinea,6.94
+2026,Papua New Guinea,8.12
+2025,Paraguay,8.52
+2026,Paraguay,9.56
+2025,Peru,8.15
+2026,Peru,9.22
+2025,Philippines,6.39
+2026,Philippines,7.61
+2025,Poland,6.94
+2026,Poland,8.12
+2025,Portugal,2.66
+2026,Portugal,4.23
+2025,Puerto Rico,3.6
+2026,Puerto Rico,5.07
+2025,Qatar,4.34
+2026,Qatar,5.75
+2025,Romania,6.85
+2026,Romania,8.03
+2025,Russian Federation,8.43
+2026,Russian Federation,9.47
+2025,Rwanda,2.94
+2026,Rwanda,4.48
+2025,Saint Kitts and Nevis,3.97
+2026,Saint Kitts and Nevis,5.41
+2025,Saint Lucia,3.5
+2026,Saint Lucia,4.99
+2025,Saint Vincent and the Grenadines,3.5
+2026,Saint Vincent and the Grenadines,4.99
+2025,Samoa,4.99
+2026,Samoa,6.34
+2025,San Marino,2.57
+2026,San Marino,4.14
+2025,Saudi Arabia,5.08
+2026,Saudi Arabia,6.43
+2025,Senegal,4.25
+2026,Senegal,5.66
+2025,Serbia,5.92
+2026,Serbia,7.19
+2025,Seychelles,11.31
+2026,Seychelles,12.1
+2025,Sierra Leone,13.27
+2026,Sierra Leone,13.87
+2025,Singapore,4.34
+2026,Singapore,5.75
+2025,Slovak Republic,4.06
+2026,Slovak Republic,5.49
+2025,Slovenia,3.97
+2026,Slovenia,5.41
+2025,Solomon Islands,4.99
+2026,Solomon Islands,6.34
+2025,South Africa,6.39
+2026,South Africa,7.61
+2025,"South Sudan, Republic of",25.45
+2026,"South Sudan, Republic of",24.96
+2025,Spain,5.08
+2026,Spain,6.43
+2025,Sri Lanka,7.78
+2026,Sri Lanka,8.88
+2025,Sudan,336.16
+2026,Sudan,307.71
+2025,Suriname,57.16
+2026,Suriname,53.82
+2025,Swaziland,5.83
+2026,Swaziland,7.1
+2025,Sweden,4.25
+2026,Sweden,5.66
+2025,Switzerland,2.76
+2026,Switzerland,4.31
+2025,Sï¿½o Tomï¿½ and Prï¿½ncipe,10.57
+2026,Sï¿½o Tomï¿½ and Prï¿½ncipe,11.42
+2025,Taiwan Province of China,3.97
+2026,Taiwan Province of China,5.41
+2025,Tajikistan,9.64
+2026,Tajikistan,10.57
+2025,Tanzania,5.83
+2026,Tanzania,7.1
+2025,Thailand,3.32
+2026,Thailand,4.82
+2025,Timor-Leste,6.11
+2026,Timor-Leste,7.36
+2025,Togo,6.39
+2026,Togo,7.61
+2025,Tonga,7.78
+2026,Tonga,8.88
+2025,Trinidad and Tobago,4.15
+2026,Trinidad and Tobago,5.58
+2025,Tunisia,7.5
+2026,Tunisia,8.63
+2025,Turkey,20.43
+2026,Turkey,20.39
+2025,Turkmenistan,15.22
+2026,Turkmenistan,15.65
+2025,Tuvalu,4.53
+2026,Tuvalu,5.92
+2025,Uganda,4.25
+2026,Uganda,5.66
+2025,Ukraine,10.94
+2026,Ukraine,11.76
+2025,United Arab Emirates,2.39
+2026,United Arab Emirates,3.97
+2025,United Kingdom,4.53
+2026,United Kingdom,5.92
+2025,United States,6.57
+2026,United States,7.78
+2025,Uruguay,9.55
+2026,Uruguay,10.49
+2025,Uzbekistan,11.5
+2026,Uzbekistan,12.26
+2025,Vanuatu,4.99
+2026,Vanuatu,6.34
+2025,Venezuela,640.55
+2026,Venezuela,584.7
+2025,Vietnam,3.87
+2026,Vietnam,5.33
+2025,Yemen,40.14
+2026,Yemen,38.33
+2025,Zambia,22.75
+2026,Zambia,22.51
+2025,Zimbabwe,93.8
+2026,Zimbabwe,87.16
+2025,World,6.57
+2026,World,7.78
+2025,Eswatini,5.83
+2026,Eswatini,7.1
+2025,SÃ£o TomÃ© and PrÃ­ncipe,10.57
+2026,SÃ£o TomÃ© and PrÃ­ncipe,11.42

@@ -1,84 +1,64 @@
 import streamlit as st
-import pandas as pd
-import plotly.express as px
+from app.utils import (
+    calculate_summary_stats,
+    filter_dataset,
+    generate_bar_chart,
+    get_top_bottom_countries,
+    load_dataset,
+)
 
-def generate_plot(df, selected_countries):
-    df = df[df['Country'].isin(selected_countries)].copy()
-    df['Inflation_rate'] = pd.to_numeric(df['Inflation_rate'], errors='coerce')
-    df.dropna(subset=['Inflation_rate'], inplace=True)
-
-    fig = px.bar(
-        df,
-        x='Year',
-        y='Inflation_rate',
-        color='Country',
-        barmode='group',
-        title='Inflation Rate Over Time for Selected Countries',
-        labels={'Inflation_rate': 'Inflation Rate (%)'},
-        height=600
-    )
-    
-    fig.update_layout(
-        xaxis_title='Year',
-        yaxis_title='Inflation Rate (%)',
-        legend_title='Country',
-        template='plotly_white'
-    )
-    
-    return fig
-
-def calculate_summary_stats(df, selected_countries):
-    selected_data = df[df['Country'].isin(selected_countries)].copy()
-    selected_data['Inflation_rate'] = pd.to_numeric(selected_data['Inflation_rate'], errors='coerce')
-    selected_data.dropna(subset=['Inflation_rate'], inplace=True)
-    summary_stats = selected_data.groupby('Country')['Inflation_rate'].describe()
-    return summary_stats
 
 def run1():
     st.title('Inflation Rate Comparison During Covid')
-    df = pd.read_csv(r'app/covid_dataset.csv', encoding='latin1')
 
-    df['Year'] = pd.to_numeric(df['Year'], errors='coerce')
-    df.dropna(subset=['Year'], inplace=True)
-    df['Year'] = df['Year'].astype(int)
+    df = load_dataset('covid_dataset.csv')
+    if df.empty:
+        return
 
     st.sidebar.title('Settings')
     country_options = df['Country'].unique()
-    default_countries = country_options[:3] 
-    selected_countries = st.sidebar.multiselect('Select Countries', options=country_options, default=default_countries)
+    default_countries = list(country_options[:3])
+    selected_countries = st.sidebar.multiselect(
+        'Select Countries', options=country_options, default=default_countries
+    )
 
     date_range = st.sidebar.slider(
-        "Select Date Range",
+        'Select Date Range',
         min_value=int(df['Year'].min()),
         max_value=int(df['Year'].max()),
         value=(int(df['Year'].min()), int(df['Year'].max()))
     )
+    st.sidebar.markdown('---')
 
-    st.sidebar.markdown("---")
+    st.write(
+        'Compare inflation rates during the COVID period by country. '
+        'Choose countries and date range in the sidebar.'
+    )
 
-    st.write("""
-    This app allows you to compare the inflation rate over time for selected countries. 
-    Use the multiselect dropdown to choose countries and the slider to select the date range.
-    """)
+    if not selected_countries:
+        st.warning('Please select at least one country for comparison.')
+        return
 
-    df_filtered = df[
-        (df['Country'].isin(selected_countries)) &
-        (df['Year'].between(date_range[0], date_range[1]))
-    ]
+    df_filtered = filter_dataset(df, selected_countries, date_range)
+    fig = generate_bar_chart(df_filtered, 'COVID-Era Inflation Rate Comparison')
+    st.plotly_chart(fig, use_container_width=True)
 
-    if selected_countries:
-        fig = generate_plot(df_filtered, selected_countries)
-        st.plotly_chart(fig, use_container_width=True)
-
-        summary_stats = calculate_summary_stats(df_filtered, selected_countries)
-        st.subheader('Summary Statistics:')
+    summary_stats = calculate_summary_stats(df_filtered)
+    if not summary_stats.empty:
+        st.subheader('Summary Statistics')
         st.table(summary_stats)
+
         csv_data = summary_stats.to_csv().encode('utf-8')
         st.download_button(
-            label="Download Summary Stats as CSV",
+            label='Download Summary Stats as CSV',
             data=csv_data,
             file_name='summary_stats.csv',
             mime='text/csv'
         )
-    else:
-        st.warning('Please select at least one country for comparison.')
+
+    highest, lowest = get_top_bottom_countries(df_filtered)
+    if not highest.empty:
+        st.subheader('Highest Average COVID Inflation by Country')
+        st.table(highest)
+        st.subheader('Lowest Average COVID Inflation by Country')
+        st.table(lowest)
