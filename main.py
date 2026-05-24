@@ -34,22 +34,30 @@ def run_chatbot():
 def main():
     st.set_page_config(layout="wide")
     
+    if "show_chatbot" not in st.session_state:
+        st.session_state.show_chatbot = False
+
+    def _hide_chatbot():
+        st.session_state.show_chatbot = False
     # Sidebar
-    with st.sidebar:
-        st.markdown("### Navigation")
-        app_selection = st.selectbox(
-            "Select Filter",
-            ["Home", "Country Wise", "During COVID", "Region Wise", "During War"]
-        )
-        
-        st.markdown("---")
-        
-        # Chatbot button
-        if st.button("Can I help you? 💬", use_container_width=True):
-            st.session_state.show_chatbot = True
+    st.sidebar.markdown("### Navigation")
+    app_selection = st.sidebar.selectbox(
+        "Select Filter",
+        ["Home", "Country Wise", "During COVID", "Region Wise", "During War"],
+        key="app_selection",
+        on_change=_hide_chatbot,
+    )
+
+    st.sidebar.markdown("---")
+
+    # Chatbot buttons
+    if st.sidebar.button("Can I help you? 💬", use_container_width=True):
+        st.session_state.show_chatbot = True
+    if st.sidebar.button("Close chatbot", use_container_width=True):
+        st.session_state.show_chatbot = False
 
     # Check if chatbot was activated
-    if st.session_state.get("show_chatbot", False):
+    if st.session_state.show_chatbot:
         run_chatbot()
     else:
         # Show selected filter view
