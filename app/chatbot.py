@@ -4,6 +4,8 @@ from difflib import get_close_matches
 import plotly.express as px
 import re
 
+from app.utils import calculate_summary_stats, get_top_bottom_countries
+
 APP_ROOT = Path(__file__).resolve().parent
 
 
@@ -36,6 +38,9 @@ class InflationChatbot:
             'britain': 'United Kingdom',
             'great britain': 'United Kingdom',
             'england': 'United Kingdom',
+            'china': "China, People's Republic of",
+            'pr china': "China, People's Republic of",
+            'people s republic of china': "China, People's Republic of",
             'south korea': 'Korea, Rep.',
             'north korea': 'Korea, Dem. People\'s Rep.',
             'russia': 'Russian Federation',
@@ -44,7 +49,12 @@ class InflationChatbot:
         }
 
     def _normalize(self, text: str) -> str:
-        return re.sub(r'[^a-z0-9 ]', ' ', text.lower())
+        # make sure 'vs' stuck to words becomes separated (e.g. 'vsUK' -> 'vs UK')
+        t = text.lower()
+        t = re.sub(r'(?<=\w)vs(?=\w)', ' vs ', t)
+        # replace any non-alphanumeric (except space) with space
+        t = re.sub(r'[^a-z0-9 ]', ' ', t)
+        return re.sub(r'\s+', ' ', t).strip()
 
     def _contains_keyword(self, text: str, keywords: list[str]) -> bool:
         normalized = f" {self._normalize(text)} "
@@ -61,38 +71,58 @@ class InflationChatbot:
 
     def _extract_countries(self, question: str, limit: int = 3) -> list[str]:
         normalized = self._normalize(question)
-        found = [country for country in self.all_countries if country.lower() in normalized]
+        tokens = normalized.split()
+        found = []
 
+        # First pass: exact alias phrase matching.
+        padded = f" {normalized} "
         for alias, name in self.country_aliases.items():
-            if alias in normalized and name not in found:
+            alias_norm = self._normalize(alias)
+            if f" {alias_norm} " in padded and name not in found:
                 found.append(name)
+                if len(found) >= limit:
+                    return found[:limit]
 
-        if len(found) < limit:
-            tokens = normalized.split()
-            for n in (3, 2, 1):
+        # Second pass: exact country name phrase matching.
+        for country in self.all_countries:
+            country_norm = self._normalize(country)
+            if f" {country_norm} " in padded and country not in found:
+                found.append(country)
                 if len(found) >= limit:
-                    break
-                for i in range(len(tokens) - n + 1):
-                    phrase = ' '.join(tokens[i:i+n])
-                    if phrase in self.country_aliases:
-                        country_name = self.country_aliases[phrase]
-                        if country_name not in found:
-                            found.append(country_name)
-                            if len(found) >= limit:
-                                break
-                    else:
-                        match = self.find_closest_match(phrase, self.all_countries)
-                        if match and match not in found:
-                            found.append(match)
-                            if len(found) >= limit:
-                                break
-                if len(found) >= limit:
-                    break
+                    return found[:limit]
+
+        # Third pass: token-level fuzzy matching, only if we still found nothing.
+        if found:
+            return found[:limit]
+
+        for token in tokens:
+            if len(token) <= 2:
+                continue
+            match = self.find_closest_match(token, self.all_countries)
+            if match and match not in found:
+                found.append(match)
+            alias_match = self.find_closest_match(token, set(self.country_aliases.keys()))
+            if alias_match and alias_match in self.country_aliases:
+                country_name = self.country_aliases[alias_match]
+                if country_name not in found:
+                    found.append(country_name)
+            if len(found) >= limit:
+                break
 
         return found[:limit]
 
     def _extract_years(self, question: str) -> list[int]:
         return [int(match) for match in re.findall(r'\b(?:19|20)\d{2}\b', question)]
+
+    def _extract_chart_type(self, question: str) -> str | None:
+        normalized = question.lower()
+        if 'pie' in normalized:
+            return 'pie'
+        if 'bar' in normalized or 'column' in normalized:
+            return 'bar'
+        if 'line' in normalized or 'trend' in normalized:
+            return 'line'
+        return None
 
     def _extract_regions(self, question: str) -> list[str]:
         normalized = self._normalize(question)
@@ -104,7 +134,7 @@ class InflationChatbot:
             return self.covid_df, 'COVID-19'
         if 'war' in q_lower or 'conflict' in q_lower or 'battle' in q_lower:
             return self.war_df, 'War'
-        if 'region' in q_lower or 'continent' in q_lower or 'africa' in q_lower or 'asia' in q_lower or 'europe' in q_lower:
+        if 'region' in q_lower or 'continent' in q_lower or 'regional' in q_lower or 'country wise' in q_lower or 'africa' in q_lower or 'asia' in q_lower or 'europe' in q_lower:
             return self.continental_df, 'Regional'
         return self.inflation_df, 'Global'
 
@@ -123,6 +153,10 @@ class InflationChatbot:
         if 'what is inflation' in q_lower or 'define inflation' in q_lower or 'inflation means' in q_lower:
             return self._explain_inflation()
 
+        if 'compare' in q_lower or ' vs ' in q_lower or ' versus ' in q_lower:
+            return self._compare_countries(question)
+        if 'trend' in q_lower or 'over time' in q_lower or 'history' in q_lower:
+            return self._inflation_trend(question)
         if 'covid' in q_lower or 'pandemic' in q_lower:
             return self._covid_insight(question)
         if 'war' in q_lower or 'conflict' in q_lower:
@@ -135,10 +169,6 @@ class InflationChatbot:
             return self._bottom_inflation_countries(question)
         if 'what happened' in q_lower or 'year summary' in q_lower or 'in ' in q_lower and any(str(year) in q_lower for year in range(2020, 2027)):
             return self._year_summary(question)
-        if 'trend' in q_lower or 'over time' in q_lower or 'history' in q_lower:
-            return self._inflation_trend(question)
-        if 'compare' in q_lower or ' vs ' in q_lower or ' versus ' in q_lower:
-            return self._compare_countries(question)
         if 'highest inflation' in q_lower or 'max inflation' in q_lower:
             return self._highest_inflation(question)
         if 'lowest inflation' in q_lower or 'min inflation' in q_lower:
@@ -151,6 +181,38 @@ class InflationChatbot:
             return self._regional_inflation(question)
 
         return self._help_message(), None
+
+    def build_support_data(self, question: str) -> dict | None:
+        dataset, label = self._get_dataset(question)
+        years = self._extract_years(question)
+        countries = self._extract_countries(question, limit=10)
+
+        if label == 'Regional':
+            regions = self._extract_regions(question)
+            if regions:
+                countries = regions
+
+        filtered = dataset.copy()
+        if countries:
+            filtered = filtered[filtered['Country'].isin(countries)]
+        if years:
+            if len(years) == 1:
+                filtered = filtered[filtered['Year'] == years[0]]
+            else:
+                filtered = filtered[filtered['Year'].between(years[0], years[-1])]
+
+        if filtered.empty:
+            return None
+
+        summary_stats = calculate_summary_stats(filtered)
+        highest, lowest = get_top_bottom_countries(filtered)
+        return {
+            "dataset_label": label,
+            "filtered_df": filtered,
+            "summary_stats": summary_stats,
+            "highest": highest,
+            "lowest": lowest,
+        }
 
     def _greet(self) -> tuple[str, object]:
         return "Hello! I am your inflation data assistant. Ask me about countries, regions, COVID trends or war-related inflation.", None
@@ -332,21 +394,63 @@ class InflationChatbot:
         countries = self._extract_countries(question, limit=2)
         if len(countries) >= 2:
             c1, c2 = countries[0], countries[1]
-            d1_data = self.inflation_df[self.inflation_df['Country'] == c1].sort_values('Year')
-            d2_data = self.inflation_df[self.inflation_df['Country'] == c2].sort_values('Year')
+            # Get the appropriate dataset based on question content
+            dataset, label = self._get_dataset(question)
+            
+            # Handle dataset-country mismatch early
+            missing_countries = [c for c in (c1, c2) if c not in dataset['Country'].values]
+            if missing_countries:
+                missing_text = " and ".join(missing_countries)
+                return (f"I don't have {missing_text} in the selected {label} dataset. "
+                        "Try Global, COVID-era, or War-era with countries that exist there."), None
+            
+            # Extract years if specified
+            years = self._extract_years(question)
+            
+            # Filter data for both countries
+            d1_data = dataset[dataset['Country'] == c1].sort_values('Year')
+            d2_data = dataset[dataset['Country'] == c2].sort_values('Year')
+            
+            # Apply year filter if specified
+            if years:
+                if len(years) == 1:
+                    d1_data = d1_data[d1_data['Year'] == years[0]]
+                    d2_data = d2_data[d2_data['Year'] == years[0]]
+                else:
+                    d1_data = d1_data[(d1_data['Year'] >= years[0]) & (d1_data['Year'] <= years[-1])]
+                    d2_data = d2_data[(d2_data['Year'] >= years[0]) & (d2_data['Year'] <= years[-1])]
+            
+            if d1_data.empty or d2_data.empty:
+                return f"No data available for {c1} or {c2} in the selected parameters.", None
+            
             d1_avg = d1_data['Inflation_rate'].mean()
             d2_avg = d2_data['Inflation_rate'].mean()
-            diff = abs(d1_avg - d2_avg)
             higher = c1 if d1_avg > d2_avg else c2
-            answer = (f"Comparing {c1} and {c2}, {higher} has had the higher average inflation. "
+            year_range = f" ({years[0]}-{years[-1]})" if years else ""
+            answer = (f"Comparing {c1} and {c2}{year_range} in {label} data: {higher} has higher average inflation. "
                       f"{c1} averaged {d1_avg:.2f}% and {c2} averaged {d2_avg:.2f}%.")
+            chart_type = self._extract_chart_type(question) or 'line'
             combined = pd.concat([
                 d1_data[['Year', 'Inflation_rate']].assign(Country=c1),
                 d2_data[['Year', 'Inflation_rate']].assign(Country=c2)
             ])
-            fig = px.line(combined, x='Year', y='Inflation_rate', color='Country', markers=True,
-                         title=f"Inflation Comparison: {c1} vs {c2}",
-                         labels={'Inflation_rate': 'Inflation Rate (%)'})
+
+            if chart_type == 'bar':
+                fig = px.bar(combined, x='Year', y='Inflation_rate', color='Country', barmode='group',
+                             title=f"Inflation Comparison: {c1} vs {c2}{year_range}",
+                             labels={'Inflation_rate': 'Inflation Rate (%)'})
+            elif chart_type == 'pie':
+                pie_data = pd.DataFrame({
+                    'Country': [c1, c2],
+                    'Inflation_rate': [d1_avg, d2_avg]
+                })
+                fig = px.pie(pie_data, values='Inflation_rate', names='Country',
+                             title=f"Average Inflation Comparison: {c1} vs {c2}{year_range}")
+            else:
+                fig = px.line(combined, x='Year', y='Inflation_rate', color='Country', markers=True,
+                             title=f"Inflation Comparison: {c1} vs {c2}{year_range}",
+                             labels={'Inflation_rate': 'Inflation Rate (%)'})
+
             fig.update_layout(template='plotly_white', height=420)
             return answer, fig
 
@@ -457,15 +561,16 @@ class InflationChatbot:
         fig.update_layout(template='plotly_white', height=420)
         return answer, fig
 
-    def _help_message(self) -> tuple[str, object]:
-        return ("I can help answer questions about inflation data! Try asking:\n\n"
-                "📊 Examples:\n"
-                "- 'What was the highest inflation in Nigeria?'\n"
-                "- 'Compare inflation in USA vs UK'\n"
-                "- 'What is the inflation trend in India?'\n"
-                "- 'What was inflation in Germany in 2022?'\n"
-                "- 'Show me top countries by inflation in 2026'\n"
-                "- 'What happened during the COVID pandemic?'\n"
-                "- 'Which regions are most stable?'\n\n"
-                "Feel free to ask me anything about inflation, regions, COVID, or war-related data!"), None
+    def _help_message(self) -> str:
+        return (
+            "I can help answer questions about inflation data.\n\n"
+            "Try asking:\n"
+            "- What was the highest inflation in Nigeria?\n"
+            "- Compare inflation in USA vs UK\n"
+            "- What is the inflation trend in India?\n"
+            "- What was inflation in Germany in 2022?\n"
+            "- Show me top countries by inflation in 2026\n"
+            "- What happened during the COVID pandemic?\n"
+            "- Which regions are most stable?"
+        )
 
