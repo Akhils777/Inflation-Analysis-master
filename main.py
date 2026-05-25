@@ -47,6 +47,21 @@ def _chart_options() -> dict[str, str]:
     }
 
 
+def _extract_chart_type(chatbot: InflationChatbot, text: str) -> str | None:
+    helper = getattr(chatbot, "_extract_chart_type", None)
+    if callable(helper):
+        return helper(text)
+
+    normalized = text.lower()
+    if "pie" in normalized:
+        return "pie"
+    if "bar" in normalized or "column" in normalized:
+        return "bar"
+    if "line" in normalized or "trend" in normalized:
+        return "line"
+    return None
+
+
 def _set_bot_reply(message: str, fig=None, support_data=None) -> None:
     st.session_state.chat_history.append(("bot", message))
     st.session_state.chat_last_fig = fig
@@ -102,7 +117,7 @@ def _render_support_data() -> None:
 def _start_compare_flow(chatbot: InflationChatbot, user_input: str) -> bool:
     countries = chatbot._extract_countries(user_input, limit=2)
     years = chatbot._extract_years(user_input)
-    chart_type = chatbot._extract_chart_type(user_input)
+    chart_type = _extract_chart_type(chatbot, user_input)
     normalized = chatbot._normalize(user_input)
 
     dataset_key = None
@@ -181,7 +196,7 @@ def _handle_pending_reply(chatbot: InflationChatbot, user_input: str) -> None:
         return
 
     if pending == "chart_type":
-        chart_type = chatbot._extract_chart_type(user_input)
+        chart_type = _extract_chart_type(chatbot, user_input)
         if not chart_type:
             _set_bot_reply("Please enter one chart type: `line`, `bar`, or `pie`.")
             return
